@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会議一覧</title>
+    <link rel="stylesheet" href="css/meetingList.css">
+</head>
+<body>
+    <div class="container">
+        <h2>会議一覧</h2>
+        <button>会議作成</button>
+        
+            <div class="meeting1">
+	            <h3><a href="#popup1" class="meeting-popup">会議A</a></h3>
+	            <p>タスク名: Project Kickoff</p>
+	            <p>備考: Initial project discussion</p>
+	            <p>開催日時: 2024-06-21</p>
+	            <p>場所: Room 101</p>
+	            <p>概要: Discuss project plan</p>
+        	</div>
+			<section class="popup" id="popup1">
+	            <div class="popup__container">
+	                <h4>会議Aの詳細</h4>
+	                <p>タスク名: Project Kickoff</p>
+	                <p>備考: Initial project discussion</p>
+	                <p>開催日時: 2024-06-21</p>
+	                <p>場所: Room 101</p>
+	                <p>概要: Discuss project plan</p>
+	                <a href="#" class="popup__close">&times;</a>
+	            </div>
+			</section>
+
+
+			<div th:each = "obj : ${Mlist}">
+				<form action = "forMenu" method = "post">
+				
+		        	<div class="meeting1">
+			            <h3><a href="#popup1" class="meeting-popup" th:text = "${obj.mtg_title}">会議A</a></h3>
+			            <p th:text = "${obj.mtg_title}">タスク名: Project Kickoff</p>
+			            <p>備考: Initial project discussion</p>
+			            <p th:text = "${obj.mtg_date}">開催日時: 2024-06-21</p>
+			            <p th:text = "${obj.mtg_place}">場所: Room 101</p>
+			            <p th:text = "${obj.mtg_outline}">概要: Discuss project plan</p>
+			            <input type = "hidden" name = "no" th:value = "${obj.mtg_id}">
+				        <!-- indMeetingController.javaでデータ受け渡し --> 
+				        <input type = "submit" value = "個別メニューへ">
+		        	</div>
+					<section class="popup" id="popup1">
+			            <div class="popup__container">
+			                <h4>[[${obj.mtg_title}]]の詳細</h4>
+			                <p>タスク名: [[${obj.mtg_topic}]]</p>
+			                <p>備考: Initial project discussion</p>
+			                <p>開催日時: [[${obj.mtg_date}]] [[${obj.mtg_time}]]</p>
+			                <p>場所: [[${obj.mtg_place}]]</p>
+			                <p>概要: [[${obj.mtg_outline}]]</p>
+			                <a href="#" class="popup__close">&times;</a>
+			            </div>
+					</section>
+				
+				</form>
+			</div>
+
+
+
+        <div class="delMtgBtn">
+            <button onclick="confirmDelete(this)">削除</button>
+        </div>
+
+        <br><button>戻る</button>
+    </div>
+
+    <script>
+        function confirmDelete(button) {
+            if (button.textContent === '削除') {
+                button.textContent = '確認';
+            } else if (button.textContent === '確認') {
+                if (window.confirm('本当に削除しますか？')) {
+                    const meeting = button.closest('.meeting');
+                    if (meeting) {
+                        meeting.remove();
+                    }
+                }
+                // ユーザーがキャンセルした場合も、削除した場合もテキストを元に戻す
+                button.textContent = '削除';
+            }
+        }
+    </script>
+</body>
+</html>

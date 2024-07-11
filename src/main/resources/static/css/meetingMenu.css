@@ -1,0 +1,91 @@
+body{
+    background-color: #006699
+}
+
+.div1 {
+    border: solid 2px #000;
+    background-color:#FFFFFF;
+    width: 200px;
+    height: 300px;
+    padding: 30px;
+    margin: 30;
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    font-size: 30px;
+}
+    
+.div2 {
+    border: solid 2px #000;
+    background-color:#FFFFFF;
+    width: 200px;
+    height: 300px;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    font-size: 30px;
+}
+
+.div3 {
+    border: solid 2px #000;
+    background-color:#FFFFFF;
+    width: 200px;
+    height: 300px;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    font-size: 30px;
+}
+
+input{
+    background: #0033ff;
+    border: soild 2px
+    color #006699;
+}
+
+.menu-mini {
+	text-align: left; /* テキストを右寄せにする */
+    margin-left: -40px; /* 左側に20pxのマージンを設定 */
+}
+
+.menu-rokuon {
+	text-align: left; /* テキストを右寄せにする */
+    margin-left: -130px; /* 左側に20pxのマージンを設定 */
+}
+
+.menu-araato {
+	text-align: left; /* テキストを右寄せにする */
+    margin-left: -70px; /* 左側に20pxのマージンを設定 */
+}
+
+.menu-giji {
+	text-align: left; /* テキストを右寄せにする */
+    margin-left: -90px; /* 左側に20pxのマージンを設定 */
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+

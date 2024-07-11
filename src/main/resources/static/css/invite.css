@@ -1,0 +1,46 @@
+body {
+	background-color: #006699;
+}
+
+
+.container {
+    width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto; 
+}
+
+.container p {
+    text-align: left; /* パラグラフを左揃えに */
+    margin: 0; /* オプション: パラグラフのデフォルトの余白を削除 */
+}
+
+button {
+    width: 150px; /* ボタンの幅を設定 */
+    height: 40px; /* ボタンの高さを設定 */
+    margin: 10px; /* ボタンの上下に10pxのマージン、左右を自動で設定して中央に配置 */
+    display: block; /* ボタンをブロック要素に変更して中央揃えを有効に */
+    text-align: center; /* テキストを中央揃え */
+    font-size: 16px; /* フォントサイズを調整 */
+}
+
+/* ボタンのコンテナをフレックスボックスに設定 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* ボタン間のスペース*/
+    margin-top: 20px; /* 上部にマージンを追加して間隔を空ける */
+}
+
+input[type="text"] {
+    border: none; /* 全ての境界線を消す */
+    outline: none; /* フォーカス時のアウトラインを消す */
+    text-align: center; /* テキストを中央揃えにする */
+}
+
+input[type="text"]:focus {
+    border-bottom: 2px solid #000; /* フォーカス時の下線の太さを変更 */
+}

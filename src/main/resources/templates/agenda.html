@@ -1,0 +1,34 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>アジェンダ画面</title>
+<link rel="stylesheet" href="css/agenda.css">
+</head>
+<body>
+    <div class="title">
+        <input type="button" onclick="location.href='home.html'" value="戻る" class="one_button">
+        <h1>〇〇会議のアジェンダ</h1>
+    </div>
+    <div class="cont">
+    <div class="container">
+        <p>件名</p>
+        <input type="text" id="mtg_title" name="mtg_title" value="初期値を指定">
+        <p>日時</p>
+        <input type="date" id="mtg_date" name="mtg_date" value="2024-07-01" min="2024-07-01" max="2030-12-31">
+        <input type="time" id="mtg_date" name="mtg_date" value="12:00">
+        <p>場所</p>
+        <input type="text" name="mtg_place" value="初期値を指定">
+        <p>参加者</p>
+        <input type="text" name="mtg_member" value="初期値を指定"><!--１行に対応-->
+        <p>---------------------------------------------------------------------------------------------------------</p>
+        <p>概要</p>
+        <textarea name="mtg_outline" rows="5">初期値を指定</textarea><br><!--複数行に対応-->
+    </div>
+    </div>
+    <div class="two_button">
+        <input type="button" onclick="location.href='home.html'" class="save" value="保存">
+        <input type="button" onclick="location.href='home.html'" class="dlAgenda_btn" value="ダウンロード">
+    </div>
+</body>
+</html>

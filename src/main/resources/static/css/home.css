@@ -1,0 +1,158 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #006699;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* スペースを均等に配分 */
+    height: 90vh; /* ビューポートの高さいっぱいに設定 */
+    width: 80%; /* 幅をビューポートの幅の80%に設定 */
+    max-width: 1000px; /* 最大幅を1000pxに設定 */
+    padding: 20px;
+    box-sizing: border-box; /* パディングを含めた全体のサイズにする */
+    background-color: #ffffff; /* 背景色を設定 */
+    border: 1px solid #ccc; /* 枠線を設定 */
+    position: relative; /* 子要素の絶対位置を基準にするために必要 */
+}
+
+.header {
+    display: flex;
+    align-items: center; /* 子要素を垂直方向に中央揃え */
+    padding: 30px;
+    position: relative;
+}
+
+.button_design {
+    background: #006699;; /* ボタン色 */
+    color: #FFF;
+    margin-left: 10px;
+    order: 1; /* ログアウトボタンを最初に表示 */
+}
+
+.header .title {
+    text-align: center;
+    font-size: 50px;
+    margin: 0 auto; /* 自動マージンで中央揃え */
+    order: 2; /* タイトルを中央に表示 */
+    position: absolute; /* 絶対配置 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ボタンのデザイン */
+.button_design, .move_mtg_list_btn {
+  background: #006699;;/*ボタン色*/
+  color: #FFF;
+  width: 100px;
+  height: 60px;
+}
+
+
+.move_mtg_list_btn {
+  display: block; /* ボタンをブロックレベル要素に変更 */
+  margin: 0 auto; /* ボタン全体を中央に配置 */
+}
+
+/* メール、＋ボタンの位置設定 */
+.chapter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}
+
+.invite , .add_mtg_btn{
+	display: block;
+	margin: 5px 0; /* ボタンの上下に余白を追加 */
+    width: 40px; /* 画像の右端からの距離 */
+    height: 80px; /* 画像の高さに合わせてボタンの高さを設定 */
+}
+
+/* 画像のスタイル */
+.invite img, .add_mtg_btn img {
+    width: 120px; /* 画像をボタンのサイズに合わせる */
+    height: 100px;
+}
+
+
+.details {
+    transition: .3s;
+    overflow: hidden;
+    margin-top: -10px;
+    padding-bottom: 20px;
+}
+
+.details:last-of-type {
+    margin-bottom: 0;
+}
+
+.details[open] {
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
+.details-summary {
+    display: block;
+    padding: 15px;
+    transition: .3s;
+    transform: translateY(10px);
+    background-color: #4682b4;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    width:500px;/* 横幅を指定 */
+    margin:0 auto;/* 水平方向に中央配置 */
+    text-align: center;
+}
+
+.details-summary:hover {
+    cursor: pointer;
+}
+
+.details-summary::-webkit-details-marker {
+    display: none;
+}
+
+.details[open] .details-summary {
+    transform: translateY(0);
+}
+
+.details-content {
+    padding: 20px;
+    background-color: #bee1de;
+    border-bottom: 2px solid ##ffffff;
+    border-left: 2px solid ##ffffff;
+    border-right: 2px solid ##ffffff;
+    width:494px;
+    margin:0 auto;/* 水平方向に中央配置 */
+}
+
+/* スクロールバー */
+.soon_mtg_list{
+    width: 520px;
+    height: 300px;
+    overflow: auto;
+    margin:0 auto;/* 水平方向に中央配置 */
+}
+
+a{
+	text-decoration:none;
+}
+
+input[type="text"] {
+    border: none; /* 全ての境界線を消す */
+    outline: none; /* フォーカス時のアウトラインを消す */
+    background-color: #bee1de;
+}
+
+input[type="text"]:focus {
+    border-bottom: 2px solid #000; /* フォーカス時の下線の太さを変更 */
+}

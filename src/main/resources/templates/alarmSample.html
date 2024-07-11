@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>タイマー</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <p>議題：</p>
+      <input type = "text" name = "mtgTopic">
+      <h3 id = "message">時間設定</h3>
+      <div id="timer">00：00</div>
+      <div class="controls">
+        <div id="setTime">
+          <button id="addFiveMin" class="min">+ 5分</button>
+          <button id="addMin" class="min">+ 1分</button>
+          <button id="addTenSec" class="min">+ 10秒</button>
+          <button id="addSec" class="min">+ 1秒</button>
+        </div>
+        <div id="move">
+          <button id="sta" class="min">開始</button>
+          <button id="r" class="min">リセット</button>
+        </div>
+        
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
