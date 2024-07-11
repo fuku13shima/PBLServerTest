@@ -25,7 +25,7 @@ public class indMeetingController {
 	@Autowired
 	UsersRepository Urepository;
 
-/***home.index***/
+/***home.html***/
 		@PostMapping(value = "forMenu")
 		public String showList(@RequestParam("no") String no , Company company , Model model) {
 			model.addAttribute("no" , no);
@@ -51,9 +51,9 @@ public class indMeetingController {
 		}
 	
 		
-//案内メール
+/****案内メール作成画面遷移****/
 		@PostMapping(value = "before" , params = "mail")
-		public String registMtg(@RequestParam("no") String no  , Company compan , Model model) {
+		public String forInvite(@RequestParam("no") String no  , Company compan , Model model) {
 			int id = Integer.parseInt(no);
 			//該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
@@ -72,6 +72,37 @@ public class indMeetingController {
 			model.addAttribute("mTitle" , mTitle);
 			
 			return "invite";
+		}
+		
+/****アジェンダ作成画面遷移****/
+		@PostMapping(value = "before" , params = "agenda")
+		public String forAgenda(@RequestParam("no") String no  , Company compan , Model model) {
+			int id = Integer.parseInt(no);
+			//該当会議取得
+			Optional<Meetings> Mselect = Mrepository.findById(id);
+//			System.out.println(Mselect);			
+			Meetings Mtemp = Mselect.get();
+//			System.out.println(Mtemp.getMeeting_name());			
+			model.addAttribute("Mselect" , Mtemp);
+			model.addAttribute("testOutline" , "mtg_outlineてすとだよ\n会議の概要がはいるよ");
+			
+			return "agenda";
+		}
+		
+		
+/****議事録作成画面遷移****/
+		@PostMapping(value = "after" , params = "minutes")
+		public String forMinutes(@RequestParam("no") String no  , Company compan , Model model) {
+			int id = Integer.parseInt(no);
+			//該当会議取得
+			Optional<Meetings> Mselect = Mrepository.findById(id);
+//			System.out.println(Mselect);			
+			Meetings Mtemp = Mselect.get();
+//			System.out.println(Mtemp.getMeeting_name());			
+			model.addAttribute("Mselect" , Mtemp);
+			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
+			
+			return "minutes";
 		}
 
 }

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entry.Meetings;
+import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.service.CompanyService;
 
 @Controller
 public class entranceController {
+	@Autowired
+	MeetingsRepository Mrepository;
+	
 	@Autowired
 	CompanyService service;
 	
@@ -31,6 +36,18 @@ public class entranceController {
 		return "login";
 	}
 	
+	//開発用会議メニュー直リンク
+	@RequestMapping(value = "/testForMeeting")
+    public String testForMeeting(Model model) {
+		int id = 5;
+		Optional<Meetings> Mselect = Mrepository.findById(id);
+//		System.out.println(Mselect);			
+		Meetings Mtemp = Mselect.get();
+//		System.out.println(Mtemp.getMeeting_name());			
+		model.addAttribute("Mselect" , Mtemp);
+		
+		return "meetingMenu";
+	}
 	
 /****login.html****/	
 	@PostMapping("login")

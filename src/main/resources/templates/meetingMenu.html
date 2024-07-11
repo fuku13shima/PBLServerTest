@@ -36,6 +36,12 @@
             	<p></p>
                 <a>会議後</a><br>
                 <p></p>
+                
+                <form action = "after" method = "post">
+                	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+                	<input type ="submit" class="menu-mini" value = "議事録遷移テスト" name = "minutes">
+                </form>
+                
                 <a href="minutes.html" class="menu-giji">・議事録</a><br/>
             </div>
             
