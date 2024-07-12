@@ -14,7 +14,7 @@ import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
 
 @Service
-public class CompanyServicelmpl implements CompanyService {
+public class RegistServicelmpl implements RegistService {
 	@Autowired
 	CompanyRepository repository;
 	

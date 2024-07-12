@@ -12,12 +12,12 @@ import com.example.demo.entry.Company;
 import com.example.demo.entry.Meetings;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
-import com.example.demo.service.CompanyService;
+import com.example.demo.service.RegistService;
 
 @Controller
 public class indMeetingController {
 	@Autowired
-	CompanyService service;
+	RegistService service;
 	
 	@Autowired
 	MeetingsRepository Mrepository;
@@ -63,12 +63,8 @@ public class indMeetingController {
 			model.addAttribute("Mselect" , Mtemp);
 			
 			//メール件名作成
-			System.out.println(Mtemp.getMtg_title().length());
-			
-			String tmp = Mtemp.getMtg_title() + "のご案内";
-			//改行を除去したかった
-			String mTitle = tmp.replaceAll("\n", "").replaceAll("\t", "");
-//			System.out.println(mTitle);
+//			System.out.println(Mtemp.getMtg_title().length());
+			String mTitle = Mtemp.getMtg_title() + "のご案内";
 			model.addAttribute("mTitle" , mTitle);
 			
 			return "invite";
