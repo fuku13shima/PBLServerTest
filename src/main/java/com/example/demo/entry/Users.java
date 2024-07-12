@@ -17,8 +17,8 @@ public class Users {
 	
 	private Integer compny_id;
 	
-	private String pass;
+	private String user_pass;
 	
-	private String mail;
+	private String user_mail;
 
 }

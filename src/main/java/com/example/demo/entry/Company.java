@@ -2,6 +2,7 @@ package com.example.demo.entry;
 
 import org.springframework.data.annotation.Id;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Company {
 	@Id
-	private Integer id;
+	private Integer company_id;
 	
-	private String name;
+	@NotBlank
+	private String company_name;
 
 }
