@@ -51,7 +51,7 @@ public class indMeetingController {
 		}
 	
 		
-/****案内メール作成画面遷移****/
+	/****案内メール作成画面遷移****/
 		@PostMapping(value = "before" , params = "mail")
 		public String forInvite(@RequestParam("no") String no  , Company compan , Model model) {
 			int id = Integer.parseInt(no);
@@ -68,13 +68,13 @@ public class indMeetingController {
 			String tmp = Mtemp.getMtg_title() + "のご案内";
 			//改行を除去したかった
 			String mTitle = tmp.replaceAll("\n", "").replaceAll("\t", "");
-			System.out.println(mTitle);
+//			System.out.println(mTitle);
 			model.addAttribute("mTitle" , mTitle);
 			
 			return "invite";
 		}
 		
-/****アジェンダ作成画面遷移****/
+	/****アジェンダ作成画面遷移****/
 		@PostMapping(value = "before" , params = "agenda")
 		public String forAgenda(@RequestParam("no") String no  , Company compan , Model model) {
 			int id = Integer.parseInt(no);
@@ -90,7 +90,7 @@ public class indMeetingController {
 		}
 		
 		
-/****議事録作成画面遷移****/
+	/****議事録作成画面遷移****/
 		@PostMapping(value = "after" , params = "minutes")
 		public String forMinutes(@RequestParam("no") String no  , Company compan , Model model) {
 			int id = Integer.parseInt(no);

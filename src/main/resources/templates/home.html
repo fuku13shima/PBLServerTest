@@ -14,7 +14,7 @@
   	</div>
   <div class="soon_mtg_list">
   
-   <!-- テストデータ -->
+   <!-- 元コードサンプル -->
     <details class="details">
         <summary class="details-summary"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
         <p class="details-content">
@@ -23,8 +23,8 @@
         参加者：<input type="text" value="初期値を追加"><br>
         概要：<input type="text" value="初期値を追加">
       </details>
+   <!-- 元コードサンプル終了 -->
       
- <!-- DBデータループ -->   
  
       <details class="details"  th:each = "obj : ${Mlist}">
 	     <summary class="details-summary" th:text = "${obj.mtg_title}"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
