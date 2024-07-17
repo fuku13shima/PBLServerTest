@@ -50,6 +50,18 @@ public class indMeetingController {
 			return "meetingMenu";	
 		}
 	
+
+		//追加ボタン押下
+		@PostMapping(value = "addMtg")
+		public String addMtg(Model model) {
+			Iterable<Meetings> Mlist = service.MselectAll();
+			
+			model.addAttribute("Mlist" , Mlist);
+			model.addAttribute("addText" , "追加しました");
+			
+			return "meetingList";
+		}
+
 		
 	/****案内メール作成画面遷移****/
 		@PostMapping(value = "before" , params = "mail")
@@ -99,6 +111,26 @@ public class indMeetingController {
 			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
 			
 			return "minutes";
+		}
+		
+		
+		//保存ボタン押下
+		@PostMapping(value = "mRegist")
+		public String selectAll(@RequestParam("no") String no , @RequestParam("pageText") String pageText ,Model model) {
+			int id = Integer.parseInt(no);
+			//該当会議取得
+			Optional<Meetings> Mselect = Mrepository.findById(id);
+//			System.out.println(Mselect);			
+			Meetings Mtemp = Mselect.get();
+//			System.out.println(Mtemp.getMeeting_name());			
+			model.addAttribute("Mselect" , Mtemp);
+//			Iterable<absences> aList = service.aSelectAll();
+//			model.addAttribute("aList" , aList);
+//			System.out.println("保存完了");
+			model.addAttribute("saveText" , "保存しました");
+			
+			
+			return pageText;
 		}
 
 }

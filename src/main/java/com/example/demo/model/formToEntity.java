@@ -4,6 +4,7 @@ import com.example.demo.entry.Meetings;
 import com.example.demo.form.MeetingsForm;
 
 public class formToEntity {
+	//フォームで受け取った情報をエンティティへ詰め替え
 	public Meetings formToEntity(MeetingsForm form) {
 		Meetings meeting = new Meetings();
 		

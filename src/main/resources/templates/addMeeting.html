@@ -8,7 +8,7 @@
 <!-- ここまで -->
 </head>
 <body>
-<form>
+<form action = "addMtg" method = "post">
   <div class="container">
     <h1>会議追加</h1>
     <!-- 会議項目 -->
@@ -32,7 +32,10 @@
      <!-- ここまで-->
     
     <!-- 追加ボタン -->
-    <input type="button" id="add_button" value="追加">
+    <input type = "hidden" name = "no" th:value = "0">
+	<input type = "hidden" name = "pageText" th:value = "meetingList">
+	<input type = "submit" class = "save" value = "追加">
+    <input type="button" id="add_button" value="(追加)">
     <!-- ここまで-->
   </div>
 </form>

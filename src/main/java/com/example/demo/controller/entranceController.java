@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entry.Meetings;
+import com.example.demo.form.MeetingsForm;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.service.RegistService;
 
@@ -77,7 +78,6 @@ public class entranceController {
 			}
 			i++;
 		}
-
 		
 		model.addAttribute("Mlist" , Mlist);
 		
@@ -95,7 +95,16 @@ public class entranceController {
 		return "meetingList";
 	}
 	
-	
+	//会議追加ページ遷移
+	@GetMapping("/addMtg")
+	public String ForaddMtg(Model model) {
+		MeetingsForm mtgForm = new MeetingsForm();
+
+		
+		model.addAttribute("mtgForm" , mtgForm);
+		
+		return "addMeeting";
+	}
 	
 
 }

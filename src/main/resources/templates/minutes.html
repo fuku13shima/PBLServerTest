@@ -6,57 +6,84 @@
 <link rel="stylesheet" href="css/minutes.css">
 </head>
 <body>
+	<!-- 会議メニューへ戻る -->
+	<form action = "forMenu" method = "POST">
+	  	<input type="submit"  class="button_design" value="戻る">
+	  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+	</form>
+	
   <a href="#" onclick="location.href='meetingMenu.html'" class="back-button">戻る</a>
 
   <div class="container">
+  	<!-- 保存完了メッセージ -->
+  	<h2 th:text = "${saveText}"></h2>
+  	
     <div class="scroll">
     <div class="border">
-    <div class="creator">作成者：<input type="text" th:value = "${Mselect.mtg_writer}" class="border2" size="10"></div>
-    <div class="title">議事録</div>
-    <div class="info">
-      <div class="info-item">
-        日時：
-        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
-          <input type="time" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}">
-      </div>
-      <div class="info-item">
-        場所：<input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}" class="border2" size="10">
-      </div>
-      <div class="info-item">
-        出席者：<input type="text" name="mtg_place" th:value = "${Mselect.mtg_member}" class="border2" size="10">
-      </div>
+    
+    <form action = "mRegist" method = "post">
+    
+	    <div class="creator">作成者：<input type="text" th:value = "${Mselect.mtg_writer}" class="border2" size="10"></div>
+	    <div class="title">議事録</div>
+	    <div class="info">
+	      <div class="info-item">
+	        日時：
+	        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
+	          <input type="time" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}">
+	      </div>
+	      <div class="info-item">
+	        場所：<input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}" class="border2" size="10">
+	      </div>
+	      <div class="info-item">
+	        出席者：<input type="text" name="mtg_place" th:value = "${Mselect.mtg_member}" class="border2" size="10">
+	      </div>
+	    </div>
+	    <div class="content">
+	      <div class="section">
+	        <div class="section-title">＜議事内容＞
+	          <input type="button" onclick="location.href=''" value="ファイルをアップロード">
+	        </div>
+	        <textarea name="mtg_outline"  th:text = "${testText}" rows="5" class="section-text"></textarea>
+	      </div>
+	      
+	      <!-- 
+	      <div class="section">
+	        <div class="section-title">＜決定事項①＞</div>
+	        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
+	      </div>
+	       -->
+	      
+	    </div>
+	    
+	    <!-- 
+	    <div class="content">
+	      <div class="section">
+	        <div class="section-title">＜議事内容②＞</div>
+	        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
+	      </div>
+	      <div class="section">
+	        <div class="section-title">＜決定事項②＞</div>
+	        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
+	      </div>
+	    </div>
+	    <div class="content">
+	      <div class="section">
+	        <div class="section-title">＜連絡事項＞</div>
+	        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
+	      </div>
+	      </div>
+	       -->
+	       <input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+	       <input type = "hidden" name = "pageText" th:value = "minutes">
+	       <input type = "submit" class = "save" value = "保存">
+       </form>
+       
     </div>
-    <div class="content">
-      <div class="section">
-        <div class="section-title">＜議事内容①＞
-          <input type="button" onclick="location.href=''" value="ファイルをアップロード">
-        </div>
-        <textarea name="mtg_outline"  th:text = "${testText}" rows="5" class="section-text"></textarea>
-      </div>
-      <div class="section">
-        <div class="section-title">＜決定事項①＞</div>
-        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
-      </div>
-    </div>
-    <div class="content">
-      <div class="section">
-        <div class="section-title">＜議事内容②＞</div>
-        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
-      </div>
-      <div class="section">
-        <div class="section-title">＜決定事項②＞</div>
-        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
-      </div>
-    </div>
-    <div class="content">
-      <div class="section">
-        <div class="section-title">＜連絡事項＞</div>
-        <textarea name="mtg_outline" rows="5" class="section-text"></textarea>
-      </div>
-      </div>
-    </div>
+    
+    
     <div class="save_btn">
-      <input type="button" onclick="location.href=''" class="save" value="保存">
+		
+      <input type="button" onclick="location.href=''" class="save" value="(保存)">
     </div>
     </div>
   </div>
