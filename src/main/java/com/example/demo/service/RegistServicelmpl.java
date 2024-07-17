@@ -24,11 +24,8 @@ public class RegistServicelmpl implements RegistService {
 	@Autowired
 	UsersRepository Urepository;
 	
-	@Override
-	public Iterable<Company> selectAll() {
-		return repository.findAll();
-	}
 
+	//一覧取得（開催日昇順）
 	@Override
 	public Iterable<Meetings> MselectAll() {
 		return Mrepository.findAll(Sort.by(Sort.Direction.ASC, "mtg_date"));
@@ -54,6 +51,12 @@ public class RegistServicelmpl implements RegistService {
 	public void absencesRegist(Meetings meeting) {
 		Mrepository.save(meeting);
 		
+	}
+
+	@Override
+	public Iterable<Company> selectAll() {
+		
+		return null;
 	}
 		
 		

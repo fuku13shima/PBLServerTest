@@ -23,13 +23,23 @@ public class entranceController {
 	@Autowired
 	RegistService service;
 	
+/************共通************/
+	//ログアウト
+	@GetMapping("logout")
+	public String selectReturn() {
+		
+		return "index";		
+	}
+	
 /****index.html****/
+	//新規登録へ
 	@RequestMapping(value = "/forRegistar")
     public String forRegistar() {
 		
 		return "registar";
 	}
 	
+	//ログインへ
 	@RequestMapping(value = "/forLogin")
     public String forLogin() {
 		
@@ -52,6 +62,9 @@ public class entranceController {
 /****login.html****/	
 	@PostMapping("login")
 	public String login(Model model) {
+		//ログイン情報取得
+		
+		
 		Iterable<Meetings> temp = service.MselectAll();
 		List<Meetings> Mlist = new ArrayList<>();
 		int i = 0;

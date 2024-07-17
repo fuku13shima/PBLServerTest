@@ -6,9 +6,15 @@
 <link rel="stylesheet" href="css/agenda.css">
 </head>
 <body>
+
+	<!-- 会議メニューへ戻る -->
+	<form action = "forMenu" method = "POST">
+	  	<input type="submit"  class="button_design" value="戻る">
+	  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+	</form>
+
     <div class="title">
-        <input type="button" onclick="location.href='home.html'" value="戻る" class="one_button">
-        <h1>〇〇会議のアジェンダ</h1>
+        <h1>[[${Mselect.mtg_title}]]のアジェンダ</h1>
     </div>
     <div class="cont">
     <div class="container">
