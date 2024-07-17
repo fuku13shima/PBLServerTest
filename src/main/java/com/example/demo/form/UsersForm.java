@@ -2,7 +2,6 @@ package com.example.demo.form;
 
 import org.springframework.data.annotation.Id;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyForm {
+public class UsersForm {
 	@Id
-	private Integer company_id;
+	private Integer user_id;
 	
-	@NotBlank
-	private String company_name;
+	private String user_name;
+	
+	private Integer compny_id;
+	
+	private String user_pass;
+	
+	private String user_mail;
 }

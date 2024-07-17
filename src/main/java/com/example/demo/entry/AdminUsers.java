@@ -17,8 +17,8 @@ public class AdminUsers {
 	
 	private Integer compny_id;
 	
-	private String pass;
+	private String admin_pass;
 	
-	private String mail;
+	private String admin_mail;
 
 }

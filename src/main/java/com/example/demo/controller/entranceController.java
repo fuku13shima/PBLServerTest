@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entry.Meetings;
 import com.example.demo.repository.MeetingsRepository;
-import com.example.demo.service.CompanyService;
+import com.example.demo.service.RegistService;
 
 @Controller
 public class entranceController {
@@ -21,7 +21,7 @@ public class entranceController {
 	MeetingsRepository Mrepository;
 	
 	@Autowired
-	CompanyService service;
+	RegistService service;
 	
 /****index.html****/
 	@RequestMapping(value = "/forRegistar")

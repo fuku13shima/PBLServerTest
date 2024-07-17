@@ -6,7 +6,7 @@ import com.example.demo.entry.Company;
 import com.example.demo.entry.Meetings;
 import com.example.demo.entry.Users;
 
-public interface CompanyService {
+public interface RegistService {
 	Iterable<Company> selectAll();
 	
 	Iterable<Meetings> MselectAll();
