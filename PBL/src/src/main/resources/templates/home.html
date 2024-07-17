@@ -1,0 +1,59 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ホーム画面</title>
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+	<div class="container">
+	<div class="header">
+  		<!-- ログアウト -->
+  		<input type="button" onclick="location.href='index.html'"  class="button_design" value="ログアウト">
+  		<h1 class="title">GatherWise</h1>
+  	</div>
+  <div class="soon_mtg_list">
+  
+   <!-- 元コードサンプル -->
+    <details class="details">
+        <summary class="details-summary"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
+        <p class="details-content">
+          <input type="text" value="会議名1"><br>
+        日時：<input type="text" value="初期値を追加"><br>
+        参加者：<input type="text" value="初期値を追加"><br>
+        概要：<input type="text" value="初期値を追加">
+      </details>
+   <!-- 元コードサンプル終了 -->
+      
+ 
+      <details class="details"  th:each = "obj : ${Mlist}">
+	     <summary class="details-summary" th:text = "${obj.mtg_title}"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
+	     <form action = "forMenu" method = "post">
+	      	<p class="details-content">
+	          <input type="text" th:value = "${obj.mtg_title}"><br>
+	        日時：<input type="text" th:value = "${obj.mtg_date}"><br>
+	        参加者：<input type="text" th:value = "${obj.mtg_member}"><br>
+	        概要：<input type="text" th:value = "${obj.mtg_topic}">
+	        <input type = "hidden" name = "no" th:value = "${obj.mtg_id}">
+	        <!-- indMeetingController.javaでデータ受け渡し --> 
+	        <input type = "submit" value = "個別メニューへ">
+        </form>
+      </details>
+      
+	</div>
+      <div class="chapter">
+      <!-- メール遷移 -->
+      <a href="invite.html" class="invite"><img src="image/mail.png"/></a>
+      <!-- 会議追加 -->
+      <a href="addMeeting.html" class="add_mtg_btn"> <img src="image/plus.jpeg"/></a>
+      <br>
+      </div>
+      <!-- 会議一覧へ -->
+      	<form action = "/ForList" method = "GET">
+	      <input type="submit" class="move_mtg_list_btn" name = "/ForList" value="会議一覧遷移テスト">
+	    </form>
+	    
+	      <input type="button" onclick="location.href='meetingList.html'" class="move_mtg_list_btn" value="会議一覧">
+     </div>
+</body>
+</html>

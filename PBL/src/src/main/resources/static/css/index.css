@@ -1,0 +1,39 @@
+body {
+    background-color: #006699;
+}
+
+.sl {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    padding-right: 100px;
+    margin-top: 40px;
+    margin-bottom: 0; 
+}
+
+.sl a {
+    color: white;
+    text-decoration: none;
+    margin-left: 100px;
+}
+
+.sl a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.GatherWise {
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    margin-top: 20px; /* 上部のマージンを追加 */
+    margin-bottom: 0px;
+    
+}
+
+.bird {
+    display: block;
+    margin: 10px auto 0;
+    width: 470px;
+    margin-top: 20px;
+}

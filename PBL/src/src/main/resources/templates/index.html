@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ホームページ</title>
+<!-- css -->
+<link rel="stylesheet" href="css/index.css">
+<!-- ここまで -->
+</head>
+<body>
+ <form>
+	<!-- 新規登録とログインボタン -->
+	<!-- entranceController.javaで遷移 -->
+	<h1 class="sl">
+		<a th:href="@{/testForMeeting}">開発用（会議個別ページリンク）</a>
+		<a th:href="@{/forEegistar}">SIN</a>
+  		<a th:href="@{/forLogin}">LOG</a>
+	</h1>
+	<!-- ここまで -->
+
+	<!-- GatherWise -->
+	<h1 class="GatherWise">
+		GatherWise
+	</h1>
+	<!-- ここまで -->
+	
+	<!-- 鳥のソロ画像 -->
+	<img src="image/bird.png" class="bird" alt="鳥の写真">
+	<!-- ここまで -->
+
+ </form>
+</body>
+</html>

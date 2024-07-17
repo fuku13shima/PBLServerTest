@@ -1,0 +1,42 @@
+body {
+    position: relative;
+  	height: 500px;
+  	font-size: 30px;
+    background-color: #006699;
+  }
+
+div {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	-webkit-transform : translate(-50%,-50%);
+	transform : translate(-50%,-50%);
+	text-align: center;/*一応BOX内の文字も中央寄せ*/
+	width: 330px;
+  	padding: 100px;
+  	background-color: #ffffff;
+  	border: 1px solid #ccc;
+  	border-radius: 5px;
+}
+
+/* ボタンのデザイン */
+input{
+  background: #0033ff;/*ボタン色*/
+  color: #FFF;
+  width: 130px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.font {
+	color: #FFFFFF;
+}
+
+.regist_msg{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.regist_msg2{
+	margin-top: -2px;
+}

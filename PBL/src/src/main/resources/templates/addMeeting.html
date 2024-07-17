@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>会議作成</title>
+<!-- css -->
+<link rel="stylesheet" href="css/addMeeting.css">
+<!-- ここまで -->
+</head>
+<body>
+<form>
+  <div class="container">
+    <h1>会議追加</h1>
+    <!-- 会議項目 -->
+    <p><span class="required">会議名</span></p>
+    <p id="titleError" style="color:red;"></p>
+    <input type="text" id="mtg_title" name="mtg_title">
+    
+    <p><span class="required">日時</span></p>
+    <p id="datetimeError" style="color:red;"></p>
+    <input type="date" id="start" name="trip-start" value="2024-07-01" min="2024-07-01" max="2030-12-31">
+    <input type="time" id="mtg_time" name="mtg_time" value="12:00">
+    
+    <p>場所</p>
+    <input type="text" name="mtg_place">
+    <p>参加者</p>
+    <input type="text" name="mtg_member">
+    <p>議題</p>
+    <input type="text" name="mtg_outline">
+    <p>概要</p>
+    <textarea name="mtg_topic" rows="5"></textarea><br>
+     <!-- ここまで-->
+    
+    <!-- 追加ボタン -->
+    <input type="button" id="add_button" value="追加">
+    <!-- ここまで-->
+  </div>
+</form>
+<!-- js -->
+<script src="js/addMeeting.js" charset="utf-8"></script>
+<!-- ここまで -->
+</body>
+</html>

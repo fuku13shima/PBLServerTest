@@ -1,0 +1,114 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;/* 子要素を左右の中央揃える指定 */
+    justify-content: center;/* 子要素を上下の中央に揃える指定 */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #006699;
+}
+
+.title {
+    display: flex;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px; /* タイトルとboxの間隔 */
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 24px;
+    /* flex-grow: 1; タイトルが可能な限り幅を取るように */
+    text-align: center; /* タイトルを中央揃えに */
+}
+
+.title input {
+    background: #0033ff; /* ボタン色 */
+    color: #FFF;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px; /* タイトルとの間隔を追加 */
+    width: 10%;/* ボタンの大きさ */
+    max-width: 800px;
+}
+
+.title input:hover {
+    background-color: #0026cc;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    height: 400px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* コンテナとボタンの間隔 */
+    overflow-y: auto; /* 縦方向にスクロール可能にする */
+}
+
+.two_button {
+    display: flex;
+    justify-content: space-between; /* 均等な間隔でコンテンツを横並びにする */
+    width: 30%;/* ボタンの大きさ(幅) */
+    max-width: 800px;
+}
+
+.save{
+	margin-right: 50px;
+}
+
+.two_button input {
+    width: 48%; /* ボタンの幅(大きさ)を調整 */
+    padding: 10px; /* ボタン縦幅 */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #0033ff;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 90px; /* 追加: ボタンの間にマージンを追加 */
+}
+
+.two_button input:last-child {
+    margin-right: 0; /* 追加: 最後のボタンのマージンをリセット */
+}
+
+.two_button input:hover {
+    background-color: #0026cc;
+}
+
+.cont {
+    display: flex;
+    justify-content: center; /* コンテナを中央に配置 */
+    width: 100%;
+}
+
+/*p{
+	display: inline-block;
+}*/
+
+
+/* 入力フィールド */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea{
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 日付項目 */
+label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
+}
