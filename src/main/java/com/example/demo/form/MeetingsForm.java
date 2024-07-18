@@ -16,6 +16,9 @@ public class MeetingsForm {
 	@Id
 	private Integer mtg_id;
 	
+	//関係会社ID
+	private Integer[] company_id;
+	
 	//会議名
 	private String mtg_title;
 	

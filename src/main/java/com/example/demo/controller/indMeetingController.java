@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.entry.Company;
-import com.example.demo.entry.Meetings;
+import com.example.demo.entity.Company;
+import com.example.demo.entity.Meetings;
+import com.example.demo.form.MeetingsForm;
+import com.example.demo.model.formToEntity;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
 import com.example.demo.service.RegistService;
@@ -27,16 +29,16 @@ public class indMeetingController {
 
 /***home.html***/
 		@PostMapping(value = "forMenu")
-		public String showList(@RequestParam("no") String no , Company company , Model model) {
+		public String showList(@RequestParam("no") String no , Model model) {
 			model.addAttribute("no" , no);
-			System.out.println("@@@@no" + no);
+			System.out.println("forMenu@@@@no" + no);
 			int id = Integer.parseInt(no);
 
 //該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
-//			System.out.println(Mselect);			
+			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
-//			System.out.println(Mtemp.getMeeting_name());			
+			System.out.println(Mtemp.getMeeting_name());			
 			model.addAttribute("Mselect" , Mtemp);
 
 //議事録作成担当者取得
@@ -51,18 +53,45 @@ public class indMeetingController {
 		}
 	
 
-		//追加ボタン押下
+		//会議追加ボタン押下
 		@PostMapping(value = "addMtg")
-		public String addMtg(Model model) {
-			Iterable<Meetings> Mlist = service.MselectAll();
+		public String addMtg(Model model , MeetingsForm form) {
+			System.out.println(form);
 			
+			//テスト用会社ID
+			Integer[] C_idTemp = {1 , 2};
+			
+			form.setCompany_id(C_idTemp);
+			//エンティティに詰め替える
+			Meetings meeting = new Meetings();
+			
+			formToEntity fte = new formToEntity();
+			meeting = fte.formToEntity(form);
+			System.out.println(meeting);
+			
+			service.meetingRegist(meeting);
+			
+			//一覧画面遷移用会議リスト取得
+			Iterable<Meetings> Mlist = service.MselectAll();
+			System.out.println(Mlist);
 			model.addAttribute("Mlist" , Mlist);
 			model.addAttribute("addText" , "追加しました");
 			
 			return "meetingList";
 		}
 
-		
+		//ホーム画面の案内メール作成画面遷移
+		@PostMapping(value = "/homeToMail")
+		public String addMail(Model model) {
+			Meetings Mlist = new Meetings();
+			
+			model.addAttribute("Mlist" , Mlist);
+					
+			return "invite";
+		}
+	
+				
+/****会議メニュー画面****/				
 	/****案内メール作成画面遷移****/
 		@PostMapping(value = "before" , params = "mail")
 		public String forInvite(@RequestParam("no") String no  , Company compan , Model model) {

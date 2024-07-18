@@ -8,39 +8,39 @@
 <!-- ここまで -->
 </head>
 <body>
-<form action = "addMtg" method = "post">
+<form action = "addMtg" method = "post" th:object = "${mtgForm}">
   <div class="container">
     <h1>会議追加</h1>
     <!-- 会議項目 -->
     <p><span class="required">会議名</span></p>
     <p id="titleError" style="color:red;"></p>
-    <input type="text" id="mtg_title" name="mtg_title">
-    
-    <p><span class="required">日時</span></p>
+    <input type="text" id="mtg_title" name="mtg_title" th:value = "*{mtg_title}">
+
+	<p><span class="required">日時</span></p>
     <p id="datetimeError" style="color:red;"></p>
-    <input type="date" id="start" name="trip-start" value="2024-07-01" min="2024-07-01" max="2030-12-31">
-    <input type="time" id="mtg_time" name="mtg_time" value="12:00">
+	<input type="date" id="start" name="mtg_date" th:value = "*{mtg_date}">
+    <input type="time" id="mtg_time" name="mtg_time" th:value = "*{mtg_time}">
     
     <p>場所</p>
-    <input type="text" name="mtg_place">
+    <input type="text" name="mtg_place" th:value = "*{mtg_place}">
     <p>参加者</p>
-    <input type="text" name="mtg_member">
+    <input type="text" name="mtg_member" th:value = "*{mtg_member}">
     <p>議題</p>
-    <input type="text" name="mtg_outline">
+    <input type="text" name="mtg_outline" th:value = "*{mtg_outline}">
     <p>概要</p>
-    <textarea name="mtg_topic" rows="5"></textarea><br>
-     <!-- ここまで-->
-    
-    <!-- 追加ボタン -->
-    <input type = "hidden" name = "no" th:value = "0">
-	<input type = "hidden" name = "pageText" th:value = "meetingList">
-	<input type = "submit" class = "save" value = "追加">
-    <input type="button" id="add_button" value="(追加)">
+    <textarea name="mtg_topic" rows="5" th:value = "*{mtg_topic}"></textarea>
     <!-- ここまで-->
+    
+	<input type = "submit" class="addMtg" value="作成">
   </div>
 </form>
 <!-- js -->
 <script src="js/addMeeting.js" charset="utf-8"></script>
+
 <!-- ここまで -->
 </body>
 </html>
+
+
+
+

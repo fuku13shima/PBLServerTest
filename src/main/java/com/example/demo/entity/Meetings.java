@@ -1,9 +1,6 @@
-package com.example.demo.entry;
-
-import java.util.Date;
+package com.example.demo.entity;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,12 +13,14 @@ public class Meetings {
 	@Id
 	private Integer mtg_id;
 	
+	//関係会社ID
+	private Integer[] company_id;
+	
 	//会議名
 	private String mtg_title;
 	
 	//会議日付
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date mtg_date;
+	private String mtg_date;
 	
 	//会議開始時間
 	private String mtg_time;

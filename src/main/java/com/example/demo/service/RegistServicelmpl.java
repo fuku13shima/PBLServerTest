@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entry.Company;
-import com.example.demo.entry.Meetings;
-import com.example.demo.entry.Users;
+import com.example.demo.entity.Meetings;
+import com.example.demo.entity.Users;
 import com.example.demo.repository.CompanyRepository;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
@@ -24,6 +23,13 @@ public class RegistServicelmpl implements RegistService {
 	@Autowired
 	UsersRepository Urepository;
 	
+	//会議登録・更新
+	@Override
+	public void meetingRegist(Meetings meeting) {
+		System.out.println("公欠届登録・更新");
+		Mrepository.save(meeting);
+		System.out.println("公欠届登録・更新完了");
+	}
 
 	//一覧取得（開催日昇順）
 	@Override
@@ -47,17 +53,6 @@ public class RegistServicelmpl implements RegistService {
 		return Urepository.findById(WriterId);
 	}
 
-	@Override
-	public void absencesRegist(Meetings meeting) {
-		Mrepository.save(meeting);
-		
-	}
 
-	@Override
-	public Iterable<Company> selectAll() {
-		
-		return null;
-	}
-		
 		
 }

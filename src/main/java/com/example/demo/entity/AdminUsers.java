@@ -1,4 +1,4 @@
-package com.example.demo.entry;
+package com.example.demo.entity;
 
 import org.springframework.data.annotation.Id;
 
@@ -9,16 +9,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+public class AdminUsers {
 	@Id
-	private Integer user_id;
+	private Integer admin_id;
 	
-	private String user_name;
+	private String admin_name;
 	
 	private Integer compny_id;
 	
-	private String user_pass;
+	private String admin_pass;
 	
-	private String user_mail;
+	private String admin_mail;
 
 }
