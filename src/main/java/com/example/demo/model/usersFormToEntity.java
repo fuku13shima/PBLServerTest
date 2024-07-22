@@ -12,6 +12,7 @@ public class usersFormToEntity {
 			user.setCompny_id(form.getCompny_id());
 			user.setUser_name(form.getUser_name());
 			user.setUser_pass(form.getUser_pass());
+			user.setUser_mail(form.getUser_mail());
 			
 			return user;
 		}

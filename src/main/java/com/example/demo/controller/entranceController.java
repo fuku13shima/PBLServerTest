@@ -16,6 +16,7 @@ import com.example.demo.entity.Users;
 import com.example.demo.form.MeetingsForm;
 import com.example.demo.form.UsersForm;
 import com.example.demo.model.userLogin;
+import com.example.demo.model.usersFormToEntity;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.service.RegistService;
 
@@ -71,9 +72,14 @@ public class entranceController {
 	@PostMapping("regist")
 	public String regist(Model model , UsersForm form , 
 			HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("取得データ" + form);
 		/*ユーザ登録*/
 		//エンティティに詰め替える
 		Users user = new Users();
+		usersFormToEntity ufte = new usersFormToEntity();
+		user = ufte.usersFormToEntity(form);
+		System.out.println("つめかえ" + user);
+		
 		service.userRegist(user);
 
 		System.out.println("登録完了");
