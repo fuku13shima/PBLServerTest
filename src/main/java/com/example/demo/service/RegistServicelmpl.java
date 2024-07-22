@@ -23,12 +23,27 @@ public class RegistServicelmpl implements RegistService {
 	@Autowired
 	UsersRepository Urepository;
 	
+	
+	//ユーザ登録・更新
+	@Override
+	public void userRegist(Users usre) {
+		System.out.println("ユーザ登録・更新");
+		Urepository.save(usre);
+		System.out.println("ユーザ登録・更新完了");
+	}
+	
+	//ユーザリスト取得
+	@Override
+	public Iterable<Users> UselectAll() {
+		return Urepository.findAll();
+	}
+	
 	//会議登録・更新
 	@Override
 	public void meetingRegist(Meetings meeting) {
-		System.out.println("公欠届登録・更新");
+		System.out.println("会議登録・更新");
 		Mrepository.save(meeting);
-		System.out.println("公欠届登録・更新完了");
+		System.out.println("会議登録・更新完了");
 	}
 
 	//一覧取得（開催日昇順）
@@ -40,9 +55,9 @@ public class RegistServicelmpl implements RegistService {
 	//取得したno(meeting_id)と一致する行を取得したい
 	@Override
 	public Optional<Meetings> Mselect(Integer no) {
-		Integer selectId = 1;
-		
-		return Mrepository.findById(selectId);
+//		Integer selectId = no;
+		System.out.println(no + "会議取得");
+		return Mrepository.findById(no);
 	}
 	
 	//取得したno(meeting_id)と一致する行を取得したい

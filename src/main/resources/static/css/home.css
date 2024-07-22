@@ -128,9 +128,9 @@ body {
 .details-content {
     padding: 20px;
     background-color: #bee1de;
-    border-bottom: 2px solid ##ffffff;
-    border-left: 2px solid ##ffffff;
-    border-right: 2px solid ##ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
     width:494px;
     margin:0 auto;/* 水平方向に中央配置 */
 }

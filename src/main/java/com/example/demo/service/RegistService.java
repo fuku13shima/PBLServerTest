@@ -8,6 +8,10 @@ import com.example.demo.entity.Users;
 public interface RegistService {
 //	Iterable<Company> selectAll();
 	
+	//ユーザ登録
+	void userRegist(Users usre);
+		
+		
 	Iterable<Meetings> MselectAll();
 	Optional<Meetings> Mselect(Integer no);
 	
@@ -15,4 +19,10 @@ public interface RegistService {
 	
 	//会議登録
 	void meetingRegist(Meetings meeting);
+
+	
+	//ユーザリスト取得
+	Iterable<Users> UselectAll();
+	
+	
 }

@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entity.Meetings;
+import com.example.demo.entity.Users;
 import com.example.demo.form.MeetingsForm;
+import com.example.demo.form.UsersForm;
+import com.example.demo.model.userLogin;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.service.RegistService;
 
@@ -62,10 +65,25 @@ public class entranceController {
 	
 /****login.html****/	
 	@PostMapping("login")
-	public String login(Model model) {
+	public String login(Model model , UsersForm form) {
 		//ログイン情報取得
+		Iterable<Users> usersList = service.UselectAll();
+		userLogin uLogin = new userLogin();
+		boolean loginCheck = uLogin.userLogin(usersList , form);
+		System.out.println("ログインチェック" + loginCheck);
+	/*ユーザ登録*/
+		//エンティティに詰め替える
+//		Users user = new Users();
+//		service.userRegist(user);
+	/*ユーザ登録*/
 		
-		
+		if(loginCheck == false) {
+			model.addAttribute("errorText" , "ユーザ情報が誤りです");
+			
+			return "login";
+		}
+				
+		//ホーム画面表示会議リスト作成
 		Iterable<Meetings> temp = service.MselectAll();
 		List<Meetings> Mlist = new ArrayList<>();
 		int i = 0;

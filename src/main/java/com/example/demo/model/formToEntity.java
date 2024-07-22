@@ -16,7 +16,10 @@ public class formToEntity {
 		meeting.setCompany_id(form.getCompany_id());
 		
 		meeting.setMtg_title(form.getMtg_title());
+		
 		meeting.setMtg_date(df.dateFormat(form.getMtg_date()));
+//		meeting.setMtg_date(form.getMtg_date());
+		
 		meeting.setMtg_time(form.getMtg_time());
 		meeting.setMtg_place(form.getMtg_place());
 		

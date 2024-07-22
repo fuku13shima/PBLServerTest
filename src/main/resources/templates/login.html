@@ -11,6 +11,7 @@
 			<h1>ログイン</h1>
 			  
 			<form action= "login" method="post">
+				<h5 th:text = "${errorText}" style = "color: red;"></h5>
 				<p>会社ID</p>
 				<input type="text" name="group_id">
 				<p>ユーザー名</p>
@@ -19,8 +20,10 @@
 				<input type="password" name="pass"><br>
 				<input type = "submit" class="move_home_btn" name = "login" value="仮ログイン">
 				  
-				<input type="button" onclick="location.href='home.html'" class="move_home_btn" value="ログイン">
+				<input type = "submit"class="move_home_btn" value="ログイン">
+			
 			</form>
+			
 			
 		</div>
 	</body>

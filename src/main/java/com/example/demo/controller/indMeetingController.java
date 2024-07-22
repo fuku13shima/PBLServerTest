@@ -32,13 +32,14 @@ public class indMeetingController {
 		public String showList(@RequestParam("no") String no , Model model) {
 			model.addAttribute("no" , no);
 			System.out.println("forMenu@@@@no" + no);
-			int id = Integer.parseInt(no);
+			Integer id = Integer.parseInt(no);
 
 //該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
 			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
-			System.out.println(Mtemp.getMeeting_name());			
+//			System.out.println(Mtemp.getMeeting_name());
+			System.out.println(Mtemp.getMtg_member());
 			model.addAttribute("Mselect" , Mtemp);
 
 //議事録作成担当者取得
