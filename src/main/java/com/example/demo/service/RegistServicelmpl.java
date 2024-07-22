@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ public class RegistServicelmpl implements RegistService {
 	
 	@Autowired
 	UsersRepository Urepository;
+
 	
 	
 	//ユーザ登録・更新
@@ -60,12 +63,28 @@ public class RegistServicelmpl implements RegistService {
 		return Mrepository.findById(no);
 	}
 	
-	//取得したno(meeting_id)と一致する行を取得したい
+	//ログインユーザの会社IDのある会議取得
 	@Override
-	public Optional<Users> WriterSelect(Integer uNo) {
-		Integer WriterId = 1;
+	public Iterable<Meetings> homeSelect(Iterable<Meetings> allList ,Integer Compay_no) {
+		List<Meetings> selectList = new ArrayList<>();
+		//会議一覧取得
+//		Iterable<Meetings> allList = service.MselectAll();
+		
+		for(Meetings temp: allList) {
+			int cnt = temp.getCompany_id().length;
 			
-		return Urepository.findById(WriterId);
+			for(int i = 0 ; i < cnt ; i++) {
+//				int k = allList.getCompany_id()[i];
+				if(temp.getCompany_id()[i] == Compay_no) {
+					selectList.add(temp);
+				}
+			}
+			
+		}
+
+		System.out.println("取得会議リスト" + selectList);
+		
+		return selectList;
 	}
 
 

@@ -14,8 +14,7 @@ public interface RegistService {
 		
 	Iterable<Meetings> MselectAll();
 	Optional<Meetings> Mselect(Integer no);
-	
-	Optional<Users> WriterSelect(Integer uNo);
+
 	
 	//会議登録
 	void meetingRegist(Meetings meeting);
@@ -23,6 +22,9 @@ public interface RegistService {
 	
 	//ユーザリスト取得
 	Iterable<Users> UselectAll();
+
+	//ログインユーザの会社IDのある会議取得
+	Iterable<Meetings> homeSelect(Iterable<Meetings> allList, Integer Compay_no);
 	
 	
 }

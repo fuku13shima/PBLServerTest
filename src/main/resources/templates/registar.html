@@ -9,16 +9,22 @@
 
     <div class="container">
         <h1>新規アカウント登録</h1>
-        <p>会社ID</p>
-        <input type="text" name="group_id" >
-        <p>メールアドレス</p>
-        <input type="text" name="mail_address">
-        <p>ユーザー名</p>
-        <input type="text" name="user_name">
-        <p>パスワード</p>
-        <input type="text" name="pass"><br>
-        <input type="button" onclick="location.href='compRegistar.html'" value="登録">
-        <input type="button" onclick="location.href='addGroup.html'" value="グループ作成">
+        
+        <form>
+	        <p>会社ID</p>
+	        <input type="text" name="group_id" >
+	        <p>メールアドレス</p>
+	        <input type="text" name="mail_address">
+	        <p>ユーザー名</p>
+	        <input type="text" name="user_name">
+	        <p>パスワード</p>
+	        <input type="text" name="pass"><br>
+	        
+	        <input type = "submit" class="move_home_btn" name = "registar" value="仮登録">
+	        
+	        <input type="button" onclick="location.href='compRegistar.html'" value="登録">
+	        <input type="button" onclick="location.href='addGroup.html'" value="グループ作成">
+        </form>
     </div>
 </body>
 </html>

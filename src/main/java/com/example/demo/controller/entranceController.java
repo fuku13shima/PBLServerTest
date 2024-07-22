@@ -19,6 +19,10 @@ import com.example.demo.model.userLogin;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.service.RegistService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class entranceController {
 	@Autowired
@@ -62,29 +66,51 @@ public class entranceController {
 		
 		return "meetingMenu";
 	}
+
+	/****registar.html****/	
+	@PostMapping("regist")
+	public String regist(Model model , UsersForm form , 
+			HttpServletRequest request, HttpServletResponse response) {
+		/*ユーザ登録*/
+		//エンティティに詰め替える
+		Users user = new Users();
+		service.userRegist(user);
+
+		System.out.println("登録完了");
+		
+		return "index";
+	}	
+	
 	
 /****login.html****/	
 	@PostMapping("login")
-	public String login(Model model , UsersForm form) {
+	public String login(Model model , UsersForm form , 
+			HttpServletRequest request, HttpServletResponse response) {
 		//ログイン情報取得
 		Iterable<Users> usersList = service.UselectAll();
 		userLogin uLogin = new userLogin();
+//		System.out.println(usersList);
 		boolean loginCheck = uLogin.userLogin(usersList , form);
 		System.out.println("ログインチェック" + loginCheck);
-	/*ユーザ登録*/
-		//エンティティに詰め替える
-//		Users user = new Users();
-//		service.userRegist(user);
-	/*ユーザ登録*/
+
 		
 		if(loginCheck == false) {
 			model.addAttribute("errorText" , "ユーザ情報が誤りです");
 			
 			return "login";
 		}
-				
+		
+		//セッションスコープ作成
+		HttpSession session = request.getSession();
+		//セッションスコープに会社ID保存
+		session.setAttribute("Compny_id", form.getCompny_id());
+
+		
 		//ホーム画面表示会議リスト作成
-		Iterable<Meetings> temp = service.MselectAll();
+		Iterable<Meetings> allList = service.MselectAll();
+		
+		Iterable<Meetings> temp = service.homeSelect(allList ,form.getCompny_id());
+		
 		List<Meetings> Mlist = new ArrayList<>();
 		int i = 0;
 		
@@ -105,10 +131,19 @@ public class entranceController {
 	
 	
 	@GetMapping("/ForList")
-	public String ForList(Model model) {
+	public String ForList(Model model , 
+			HttpServletRequest request, HttpServletResponse response) {
 		Iterable<Meetings> Mlist = service.MselectAll();
 		
-		model.addAttribute("Mlist" , Mlist);
+//		//セッションスコープ作成
+		HttpSession session = request.getSession();
+//		// セッションスコープからインスタンスを取得
+		Integer Compny_id = (Integer) session.getAttribute("Compny_id");
+		
+		Iterable<Meetings> temp = service.homeSelect(Mlist , Compny_id);
+
+		
+		model.addAttribute("Mlist" , temp);
 		
 		return "meetingList";
 	}
