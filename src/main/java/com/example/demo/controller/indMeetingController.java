@@ -138,7 +138,6 @@ public class indMeetingController {
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
 			model.addAttribute("Mselect" , Mtemp);
-			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
 			
 			return "minutes";
 		}
@@ -146,21 +145,27 @@ public class indMeetingController {
 		
 		//保存ボタン押下
 		@PostMapping(value = "mRegist")
-		public String selectAll(@RequestParam("no") String no , @RequestParam("pageText") String pageText ,Model model) {
+		public String selectAll(MeetingsForm form , @RequestParam("no") String no , @RequestParam("pageText") String pageText ,Model model) {
 			int id = Integer.parseInt(no);
 			//該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
 //			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
+
+			
+			
+			
+//			System.out.println(Mtemp.getMeeting_name());			
 			model.addAttribute("Mselect" , Mtemp);
 //			Iterable<absences> aList = service.aSelectAll();
 //			model.addAttribute("aList" , aList);
 //			System.out.println("保存完了");
 			model.addAttribute("saveText" , "保存しました");
+			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
+
 			
-			
-			return pageText;
+			return "minutes";
 		}
 
 }

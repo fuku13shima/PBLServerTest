@@ -4,16 +4,19 @@
 <meta charset="UTF-8">
 <title>ホーム画面</title>
 <link rel="stylesheet" href="css/home.css">
+
 </head>
 <body>
-	<div class="container">
+	
 	<div class="header">
   		<!-- ログアウト -->
-  		<form action = "logout" method = "GET">
+  		<form action = "logout" method = "GET" id = "designForm">
   			<input type="submit"  class="button_design" value="ログアウト">
   		</form>
-  		<h1 class="title">GatherWise</h1>
+  		<h1 class="GatherWise">GatherWise</h1>
   	</div>
+  	
+  	<div class="container">
   <div class="soon_mtg_list">
   
    <!-- 元コードサンプル -->
@@ -52,10 +55,8 @@
       </div>
       <!-- 会議一覧へ -->
       	<form action = "/ForList" method = "GET">
-	      <input type="submit" class="move_mtg_list_btn" name = "/ForList" value="会議一覧遷移テスト">
+	      <input type="submit" class="move_mtg_list_btn" name = "/ForList" value="会議一覧">
 	    </form>
-	    
-	      <input type="button" onclick="location.href='meetingList.html'" class="move_mtg_list_btn" value="会議一覧">
      </div>
 </body>
 </html>

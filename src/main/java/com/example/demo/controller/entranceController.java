@@ -111,6 +111,7 @@ public class entranceController {
 		//セッションスコープに会社ID保存
 		session.setAttribute("Compny_id", form.getCompny_id());
 
+//		System.out.println("会社IDチェック" + form.getCompny_id());
 		
 		//ホーム画面表示会議リスト作成
 		Iterable<Meetings> allList = service.MselectAll();

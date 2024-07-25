@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <title>アジェンダ画面</title>
 <link rel="stylesheet" href="css/agenda.css">
+<link rel="stylesheet" href="css/fragment.css">
 </head>
 <body>
 
 	<!-- 会議メニューへ戻る -->
-	<form action = "forMenu" method = "POST">
-	  	<input type="submit"  class="button_design" value="戻る">
-	  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-	</form>
-
-    <div class="title">
-        <h1>[[${Mselect.mtg_title}]]のアジェンダ</h1>
-    </div>
+	<div class="header">
+		<div id="mtg_sub_header" th:replace="fragment :: mtg_sub_header"></div>
+		<div id = "title"> 
+			<h2 id = "mtg_title" th:text = "${Mselect.mtg_title}"></h2>
+		</div>
+	</div>
     
     <form action = "mRegist" method = "post">
     
@@ -24,18 +23,23 @@
 	    	<!-- 保存完了メッセージ -->
   			<h2 th:text = "${saveText}"></h2>
   			
-	        <p>件名</p>
-	        <input type="text" id="mtg_title" name="mtg_title" th:value = "${Mselect.mtg_title}">
-	        <p>日時</p>
-	        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
-	        <input type="time" id="mtg_time" name="mtg_time" th:value = "${Mselect.mtg_time}">
-	        <p>場所</p>
-	        <input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}">
-	        <p>参加者</p>
-	        <input type="text" name="mtg_member" th:value = "${Mselect.mtg_member}"><!--１行に対応-->
-	        <p>---------------------------------------------------------------------------------------------------------</p>
-	        <p>概要</p>
-	        <textarea name="mtg_outline" th:text = "${testOutline}" rows="5">初期値を指定</textarea><br><!--複数行に対応-->
+  			<form action= "saveAgenda" method="post">
+  			
+		        <p>件名</p>
+		        <input type="text" id="mtg_title" name="mtg_title" th:value = "${Mselect.mtg_title}">
+		        <p>日時</p>
+		        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
+		        <input type="time" id="mtg_time" name="mtg_time" th:value = "${Mselect.mtg_time}">
+		        <p>場所</p>
+		        <input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}">
+		        <p>参加者</p>
+		        <input type="text" name="mtg_member" th:value = "${Mselect.mtg_member}"><!--１行に対応-->
+		        <p>---------------------------------------------------------------------------------------------------------</p>
+		        <p>概要</p>
+		        <textarea name="mtg_outline" th:text = "${testOutline}" rows="5">初期値を指定</textarea><br><!--複数行に対応-->
+	    	
+	    	</form>
+	    
 	    </div>
 	    </div>
 	    
@@ -43,8 +47,6 @@
 	    	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
 		    <input type = "hidden" name = "pageText" th:value = "agenda">
 		    <input type = "submit" class = "save" value = "保存">
-		    
-	        <input type="button" onclick="location.href='home.html'" class="save" value="(保存)">
 	        <input type="button" onclick="location.href='home.html'" class="dlAgenda_btn" value="ダウンロード">
 	    </div>
 	    

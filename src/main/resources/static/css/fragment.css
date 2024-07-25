@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.header{
+	width: 100%;
+	position: fixed;
+  	top: 0;
+  	padding: 0px;
+}
+
+.GatherWise {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    /* margin-top: 1em; 上部のマージンを追加 */
+    margin: 0px;
+
+}
+
+#returnBtn{
+  background-color:  #0077ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+	margin: 1em 0 0 3em;
+	width: fit-content;
+	width: 4em;
+  	height: 2em;
+}
+
+#title{
+	display: flex;
+	justify-content: center;
+}
+
+#mtg_title{
+	text-align: center;
+	margin: 0px;
+	color: white;
+	width: fit-content;
+	border: 1px solid white;
+}

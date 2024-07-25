@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <title>会議メニュー</title>
     <link rel="stylesheet" href="css/meetingMenu.css">
+    <link rel="stylesheet" href="css/fragment.css">
 </head>
 <body>
+	<div class="header">
+		<div id="mtg_header" th:replace="fragment :: mtg_header"></div>
+		<div id = "title"> 
+			<h2 id = "mtg_title" th:text = "${Mselect.mtg_title}"></h2>
+		</div>
+	</div>
 <!-- indMeetingController.javaでデータ受け渡し --> 
     <div class="container">
-    	<h2 th:text = "${Mselect.mtg_title}"></h2>
+    	
             <div class="div1">
             	<p></p>
                 <a>会議前</a><br>
@@ -16,20 +23,17 @@
                 
                 <form action = "before" method = "post">
                 	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-                	<input type ="submit" class="menu-mini" value = "案内メール遷移テスト" name = "mail">
-                	<input type ="submit" class="menu-mini" value = "アジェンダ遷移テスト" name = "agenda">
+                	<input type ="submit" class="menu-mini" value = "案内メール" name = "mail">
+                	<input type ="submit" class="menu-mini" value = "アジェンダ" name = "agenda">
                 </form>
-                
-                <a href="invite.html" class="menu-mini">・案内メール</a><br/>
-                <a href="agenda.html" class="menu-mini">・アジェンダ</a>
             </div>
             
             <div class="div2">
             	<p></p>
                 <a>会議中</a><br>
                 <p></p>
-                <a href="meeting.html" class="menu-rokuon">・録音</a><br/>
-                <a href="meeting.html" class="menu-araato">・アラート</a>
+                <a href="meeting.html" class="menu-rokuon">録音</a><br/>
+                <a href="meeting.html" class="menu-araato">アラート</a>
 
             </div>
             <div class="div3">
@@ -39,16 +43,11 @@
                 
                 <form action = "after" method = "post">
                 	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-                	<input type ="submit" class="menu-mini" value = "議事録遷移テスト" name = "minutes">
+                	<input type ="submit" class="menu-mini" value = "議事録" name = "minutes">
                 </form>
-                
-                <a href="minutes.html" class="menu-giji">・議事録</a><br/>
             </div>
             
         <footer>
-	  		<form action = "/ForList" method = "GET">
-	  			<input type="submit"  class="button_design" value="戻る">
-	  		</form>
         </footer>
     </div>
 </body>

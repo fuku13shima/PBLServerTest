@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <title>案内メール画面</title>
 <link rel="stylesheet" href="css/invite.css">
+<link rel="stylesheet" href="css/fragment.css">
 </head>
 <body>
 	<!-- 会議メニューへ戻る -->
-	<form action = "forMenu" method = "POST">
-	  	<input type="submit"  class="button_design" value="戻る">
-	  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-	</form>
+	<div class="header">
+		<div id="mtg_sub_header" th:replace="fragment :: mtg_sub_header"></div>
+		<div id = "title"> 
+			<h2 id = "mtg_title" th:text = "${Mselect.mtg_title}"></h2>
+		</div>
+	</div>
 	
 	<form action = "mRegist" method = "post">
 		<div class="container">
@@ -54,8 +57,6 @@
 		<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
 		<input type = "hidden" name = "pageText" th:value = "invite">
 	    <input type = "submit" class = "save" value = "保存">
-	    
-		<button name="keep_mail_btn">(保存)</button>
 		
 		<button name="attache_data_btn">Gmailへ移動</button>
 		<!-- ここまで -->

@@ -24,8 +24,7 @@ body {
 }
 
 .title input {
-    background: #0033ff; /* ボタン色 */
-    color: #FFF;
+    background: #0077ff; /* ボタン色 */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -49,6 +48,7 @@ body {
     border-radius: 5px;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 6em;
     margin-bottom: 20px; /* コンテナとボタンの間隔 */
     overflow-y: auto; /* 縦方向にスクロール可能にする */
 }
@@ -68,10 +68,9 @@ body {
     width: 48%; /* ボタンの幅(大きさ)を調整 */
     padding: 10px; /* ボタン縦幅 */
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(80, 80, 80);
     border-radius: 5px;
-    background-color: #0033ff;
-    color: #fff;
+    background-color: #0077ff;
     cursor: pointer;
     margin-right: 90px; /* 追加: ボタンの間にマージンを追加 */
 }

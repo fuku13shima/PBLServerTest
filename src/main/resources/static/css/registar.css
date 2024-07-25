@@ -25,7 +25,7 @@ p {
 
 input[type="text"],
 input[type="password"],
-input[type="button"] {
+input[type="submit"] {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
@@ -33,7 +33,7 @@ input[type="button"] {
   border-radius: 4px;
 }
 
-input[type="button"] {
+input[type="submit"] {
   width: 100%;
   background-color:  #0077ff;
   color: white;
@@ -41,6 +41,6 @@ input[type="button"] {
   cursor: pointer;
 }
 
-input[type="button"]:hover {
+input[type="submit"]:hover {
   background-color:  #0077ff;
 }

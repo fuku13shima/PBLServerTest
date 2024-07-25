@@ -2,6 +2,13 @@ body {
 	background-color: #006699;
 }
 
+#returnBtn{
+	background-color:  #0077ff;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+}
 
 .container {
     width: 600px;
@@ -10,7 +17,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    margin: 0 auto; 
+    margin: 13em auto 0 auto; 
 }
 
 .container p {
@@ -18,7 +25,8 @@ body {
     margin: 0; /* オプション: パラグラフのデフォルトの余白を削除 */
 }
 
-button {
+button , .save{
+	background-color:  #0077ff;
     width: 150px; /* ボタンの幅を設定 */
     height: 40px; /* ボタンの高さを設定 */
     margin: 10px; /* ボタンの上下に10pxのマージン、左右を自動で設定して中央に配置 */
