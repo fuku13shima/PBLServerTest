@@ -6,12 +6,23 @@
 	</head>
 	
 	<body>
+		
+		<span th:fragment="index_header">
+			<form action = "logout" method = "GET" id = "designForm">
+	  			<input type="submit"  class="button_design" value="戻る">
+	  		</form>
+			<h1 class="GatherWise">GatherWise</h1>
+		</span>
+		
+		
 		<span th:fragment="header">
-			<form action = "/ForList" method = "GET">
+			<form action = "/ForHome" method = "POST">
+				<input type = "hidden" name = "no" th:value = "${Compny_id}">
 				<input type="submit" id = "returnBtn" class="button_design" value="戻る">
 			</form>
 			<h1 class="GatherWise">GatherWise</h1>
 		</span>
+		
 		
 		
 		<span th:fragment="mtg_header">

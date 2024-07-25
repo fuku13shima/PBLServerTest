@@ -5,36 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会議一覧</title>
     <link rel="stylesheet" href="css/meetingList.css">
+    <link rel="stylesheet" href="css/fragment.css">
 </head>
 <body>
+	<div class="header">
+		<form action = "/ForHome" method = "POST">
+				<input type = "hidden" name = "no" th:value = "${Compny_id}">
+				<input type="submit" id = "returnBtn" class="button_design" value="戻る">
+			</form>
+			<h1 class="GatherWise">GatherWise</h1>
+	</div>
+	
     <div class="container">
     	<!-- 保存完了メッセージ -->
   		<h2 th:text = "${addText}"></h2>
         <h2>会議一覧</h2>
         <button>会議作成</button>
-        
-        <!-- 元コードサンプル -->
-            <div class="meeting1">
-	            <h3><a href="#popup1" class="meeting-popup">会議A</a></h3>
-	            <p>タスク名: Project Kickoff</p>
-	            <p>備考: Initial project discussion</p>
-	            <p>開催日時: 2024-06-21</p>
-	            <p>場所: Room 101</p>
-	            <p>概要: Discuss project plan</p>
-        	</div>
-			<section class="popup" id="popup1">
-	            <div class="popup__container">
-	                <h4>会議Aの詳細</h4>
-	                <p>タスク名: Project Kickoff</p>
-	                <p>備考: Initial project discussion</p>
-	                <p>開催日時: 2024-06-21</p>
-	                <p>場所: Room 101</p>
-	                <p>概要: Discuss project plan</p>
-	                <a href="#" class="popup__close">&times;</a>
-	            </div>
-			</section>
-		<!-- 元コードサンプル終了 -->
-
 
 			<div  class="meeting1" th:each = "obj : ${Mlist}">
 				<form action = "forMenu" method = "post">
@@ -71,9 +57,6 @@
             <button onclick="confirmDelete(this)">削除</button>
         </div>
 
-        <br><form action = "login" method = "POST">
-	  			<input type="submit"  class="button_design" value="戻る">
-	  		</form>
     </div>
 
     <script>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Meetings;
 import com.example.demo.entity.Users;
@@ -130,12 +131,38 @@ public class entranceController {
 			i++;
 		}
 		
+		model.addAttribute("Compny_id", form.getCompny_id());
 		model.addAttribute("Mlist" , Mlist);
 		
 		return "home";
 	}
 
 	
+	@PostMapping("/ForHome")
+	public String ForHome(@RequestParam("Compny_id") String Compny_id , Model model) {
+		int cId = Integer.parseInt(Compny_id);
+		//ホーム画面表示会議リスト作成
+				Iterable<Meetings> allList = service.MselectAll();
+				
+				Iterable<Meetings> temp = service.homeSelect(allList ,cId);
+				
+				List<Meetings> Mlist = new ArrayList<>();
+				int i = 0;
+				
+				for(Meetings w : temp) {
+					if(i < 5) {
+						Mlist.add(w);
+					}else {
+						break;
+					}
+					i++;
+				}
+				
+				model.addAttribute("Compny_id", cId);
+				model.addAttribute("Mlist" , Mlist);
+		
+		return "home";
+	}
 	
 	@GetMapping("/ForList")
 	public String ForList(Model model , 

@@ -18,18 +18,6 @@
   	
   	<div class="container">
   <div class="soon_mtg_list">
-  
-   <!-- 元コードサンプル -->
-    <details class="details">
-        <summary class="details-summary"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
-        <p class="details-content">
-          <input type="text" value="会議名1"><br>
-        日時：<input type="text" value="初期値を追加"><br>
-        参加者：<input type="text" value="初期値を追加"><br>
-        概要：<input type="text" value="初期値を追加">
-      </details>
-   <!-- 元コードサンプル終了 -->
-      
  
       <details class="details"  th:each = "obj : ${Mlist}">
 	     <summary class="details-summary" th:text = "${obj.mtg_title}"><a href= "meetingList.html" ><font color="#FFFFFF">会議1</font></a></summary>
