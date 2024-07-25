@@ -17,7 +17,7 @@
 
   <div class="container">
   	<!-- 保存完了メッセージ -->
-  	<h2 th:text = "${saveText}"></h2>
+  	<h2 id = "saveText" th:text = "${saveText}"></h2>
   	
     <div class="scroll">
     <div class="border">
@@ -42,7 +42,7 @@
 	    <div class="content">
 	      <div class="section">
 	        <div class="section-title">＜議事内容＞
-	          <input type="button" onclick="location.href=''" value="ファイルをアップロード">
+	          <input type="submit" form = "upload" value="ファイルをアップロード">
 	        </div>
 	        <textarea name="mtg_outline"  th:text = "${testText}" rows="5" class="section-text"></textarea>
 	      </div>
@@ -53,6 +53,10 @@
 	       <input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
 	       <input type = "hidden" name = "pageText" th:value = "minutes">
 	       
+       </form>
+       
+       <form action = "upload" method = "post" id = "upload">
+       		<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
        </form>
        
     </div>

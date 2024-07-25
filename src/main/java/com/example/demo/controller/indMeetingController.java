@@ -167,5 +167,26 @@ public class indMeetingController {
 			
 			return "minutes";
 		}
+		
+		
+		@PostMapping(value = "upload")
+		public String upload(MeetingsForm form , @RequestParam("no") String no ,Model model) {
+			int id = Integer.parseInt(no);
+			//該当会議取得
+			Optional<Meetings> Mselect = Mrepository.findById(id);
+//			System.out.println(Mselect);			
+			Meetings Mtemp = Mselect.get();
+//			System.out.println(Mtemp.getMeeting_name());			
+			
+			
+//			System.out.println(Mtemp.getMeeting_name());			
+			model.addAttribute("Mselect" , Mtemp);
+//			Iterable<absences> aList = service.aSelectAll();
+//			model.addAttribute("aList" , aList);
+//			System.out.println("保存完了");
+			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
+
+			return "minutes";
+		}
 
 }

@@ -21,6 +21,10 @@ body {
     */
 }
 
+#saveText{
+	margin: 0;
+}
+
 .title {
     font-size: 24px;
     font-weight: bold;
