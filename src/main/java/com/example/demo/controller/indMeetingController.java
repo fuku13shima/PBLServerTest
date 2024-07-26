@@ -66,7 +66,7 @@ public class indMeetingController {
 			System.out.println(form);
 			
 			//テスト用会社ID
-			Integer[] C_idTemp = {1};
+			Integer[] C_idTemp = {2};
 			
 			form.setCompany_id(C_idTemp);
 			//エンティティに詰め替える
