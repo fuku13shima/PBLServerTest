@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Company;
 import com.example.demo.entity.Meetings;
 import com.example.demo.form.MeetingsForm;
+import com.example.demo.model.dateFormat;
 import com.example.demo.model.formToEntity;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
@@ -122,7 +124,7 @@ public class indMeetingController {
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
 			model.addAttribute("Mselect" , Mtemp);
-			model.addAttribute("testOutline" , "mtg_outlineてすとだよ\n会議の概要がはいるよ");
+			model.addAttribute("testOutline" , Mtemp.getMtg_outline());
 			
 			return "agenda";
 		}
@@ -138,6 +140,14 @@ public class indMeetingController {
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
 			model.addAttribute("Mselect" , Mtemp);
+			
+			
+			//日付フォーマット変更
+			dateFormat df = new dateFormat();
+			Date day = df.stringToDate(Mtemp.getMtg_date());
+			System.out.println(day);
+			
+			model.addAttribute("day" , day);
 			
 			return "minutes";
 		}
@@ -162,8 +172,7 @@ public class indMeetingController {
 //			model.addAttribute("aList" , aList);
 //			System.out.println("保存完了");
 			model.addAttribute("saveText" , "保存しました");
-			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
-
+			model.addAttribute("testText" , Mtemp.getMtg_text());
 			
 			return "minutes";
 		}
@@ -184,7 +193,7 @@ public class indMeetingController {
 //			Iterable<absences> aList = service.aSelectAll();
 //			model.addAttribute("aList" , aList);
 //			System.out.println("保存完了");
-			model.addAttribute("testText" , "mtg_textてすとだよ\n議事録の内容がはいると思われるよ");
+			model.addAttribute("testText" , Mtemp.getMtg_text());
 
 			return "minutes";
 		}

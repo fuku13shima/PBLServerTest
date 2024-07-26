@@ -21,6 +21,8 @@ public class dateFormat {
 //フォームのtype="date"に入るようにする
 	public Date stringToDate (String Days){
 
+		System.out.println("日付取得" + Days);
+		
 		Date w = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");	

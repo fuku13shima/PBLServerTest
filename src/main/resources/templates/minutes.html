@@ -29,8 +29,8 @@
 	    <div class="info">
 	      <div class="info-item">
 	        日時：
-	        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
-	          <input type="time" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}">
+	        <input type="date" id="mtg_date" name="mtg_date" th:value = "${day}">
+	          <input type="time" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_time}">
 	      </div>
 	      <div class="info-item">
 	        場所：<input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}" class="border2" size="10">
