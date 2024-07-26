@@ -186,11 +186,19 @@ public class indMeetingController {
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
 
+			//詰め替え
+			entityToForm etf = new entityToForm();
+			MeetingsForm temp = etf.entityToForm(Mtemp);
 			
+			System.out.println("変更日付取得" + temp.getMtg_date());
+			
+//			model.addAttribute("day" , temp.getMtg_date());
+			
+			model.addAttribute("Mselect" , temp);
 			
 			
 //			System.out.println(Mtemp.getMeeting_name());			
-			model.addAttribute("Mselect" , Mtemp);
+//			model.addAttribute("Mselect" , Mtemp);
 //			Iterable<absences> aList = service.aSelectAll();
 //			model.addAttribute("aList" , aList);
 //			System.out.println("保存完了");
@@ -210,9 +218,17 @@ public class indMeetingController {
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
 			
+			//詰め替え
+			entityToForm etf = new entityToForm();
+			MeetingsForm temp = etf.entityToForm(Mtemp);
 			
+			System.out.println("変更日付取得" + temp.getMtg_date());
+			
+//			model.addAttribute("day" , temp.getMtg_date());
+			
+			model.addAttribute("Mselect" , temp);
 //			System.out.println(Mtemp.getMeeting_name());			
-			model.addAttribute("Mselect" , Mtemp);
+//			model.addAttribute("Mselect" , Mtemp);
 //			Iterable<absences> aList = service.aSelectAll();
 //			model.addAttribute("aList" , aList);
 //			System.out.println("保存完了");
