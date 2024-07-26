@@ -8,41 +8,49 @@
 	<body>
 		
 		<span th:fragment="index_header">
-			<form action = "logout" method = "GET" id = "designForm">
-	  			<input type="submit"  class="button_design" value="戻る">
-	  		</form>
-			<h1 class="GatherWise">GatherWise</h1>
+			<div style="z-index:10000">
+				<form action = "logout" method = "GET" id = "designForm">
+		  			<input type="submit"  class="button_design" value="戻る">
+		  		</form>
+				<h1 class="GatherWise">GatherWise</h1>
+			</div>
 		</span>
 		
 		
 		<span th:fragment="header">
-			<form action = "/ForHome" method = "POST">
-				<input type = "hidden" name = "no" th:value = "${Compny_id}">
-				<input type="submit" id = "returnBtn" class="button_design" value="戻る">
-			</form>
-			<h1 class="GatherWise">GatherWise</h1>
+			<div style="z-index:10000">
+				<form action = "/ForHome" method = "POST">
+					<input type = "hidden" name = "no" th:value = "${Compny_id}">
+					<input type="submit" id = "returnBtn" class="button_design" value="戻る">
+				</form>
+				<h1 class="GatherWise">GatherWise</h1>
+			</div>
 		</span>
 		
 		
 		
 		<span th:fragment="mtg_header">
-			<form action = "/ForList" method = "GET">
-				<input type="submit" id = "returnBtn" class="button_design" value="戻る">
-			</form>
-			
-			<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-			<h1 class="GatherWise">GatherWise</h1>
+			<div style="z-index:10000">
+				<form action = "/ForList" method = "GET">
+					<input type="submit" id = "returnBtn" class="button_design" value="戻る">
+				</form>
+				
+				<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+				<h1 class="GatherWise">GatherWise</h1>
+			</div>
 		</span>
 		
 		
 		<span th:fragment="mtg_sub_header">
-			<form action = "forMenu" method = "POST">
-			  	<input type="submit" id = "returnBtn" class="button_design" value="戻る">
-			  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-			</form>
-			
-			<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
-			<h1 class="GatherWise">GatherWise</h1>
+			<div style="z-index:10000">
+				<form action = "forMenu" method = "POST">
+				  	<input type="submit" id = "returnBtn" class="button_design" value="戻る">
+				  	<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+				</form>
+				
+				<input type = "hidden" name = "no" th:value = "${Mselect.mtg_id}">
+				<h1 class="GatherWise">GatherWise</h1>
+			</div>
 		</span>
 	</body>
 </html>
