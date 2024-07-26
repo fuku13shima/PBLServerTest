@@ -124,6 +124,9 @@ public class indMeetingController {
 			String mTitle = Mtemp.getMtg_title() + "のご案内";
 			model.addAttribute("mTitle" , mTitle);
 			
+			
+			model.addAttribute("company" , "OIC");
+			
 			return "invite";
 		}
 		
