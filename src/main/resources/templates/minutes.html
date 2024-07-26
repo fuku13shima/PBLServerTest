@@ -22,14 +22,14 @@
     <div class="scroll">
     <div class="border">
     
-    <form action = "mRegist" method = "post" id = "mForm">
+    <form action = "mRegist" method = "post" id = "mForm" th:object = "${Mselect}">
     
 	    <div class="creator">作成者：<input type="text" th:value = "${Mselect.mtg_writer}" class="border2" size="10"></div>
 	    <div class="title">議事録</div>
 	    <div class="info">
 	      <div class="info-item">
 	        日時：
-	        <input type="date" id="mtg_date" name="mtg_date" th:value = "${day}">
+	        <input type="date" id="mtg_date" name="mtg_date" th:field = "*{mtg_date}">
 	          <input type="time" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_time}">
 	      </div>
 	      <div class="info-item">

@@ -1,33 +1,36 @@
 package com.example.demo.model;
 
+import com.example.demo.entity.Meetings;
+import com.example.demo.form.MeetingsForm;
+
 public class entityToForm {
 	//フォームで受け取った情報をエンティティへ詰め替え
-//	public Meetings formToEntity(MeetingsForm form) {
-////		System.out.println("詰め替え");
-//		Meetings meeting = new Meetings();
-//		//日付フォーマット変更
-//		dateFormat df = new dateFormat();
-//		
-//		meeting.setMtg_id(form.getMtg_id());
-//		
-//		meeting.setCompany_id(form.getCompany_id());
-//		
-//		meeting.setMtg_title(form.getMtg_title());
-//		
-//		meeting.setMtg_date(df.dateFormat(form.getMtg_date()));
+	public MeetingsForm entityToForm(Meetings meeting) {
+//		System.out.println("詰め替え");
+		MeetingsForm fMeeting = new MeetingsForm();
+		//日付フォーマット変更
+		dateFormat df = new dateFormat();
+		
+		fMeeting.setMtg_id(meeting.getMtg_id());
+		
+		fMeeting.setCompany_id(meeting.getCompany_id());
+		
+		fMeeting.setMtg_title(meeting.getMtg_title());
+		
+		fMeeting.setMtg_date(df.stringToDate(meeting.getMtg_date()));
 ////		meeting.setMtg_date(form.getMtg_date());
 //		
-//		meeting.setMtg_time(form.getMtg_time());
-//		meeting.setMtg_place(form.getMtg_place());
-//		
-//		meeting.setMtg_writer(form.getMtg_writer());
-//		meeting.setMtg_member(form.getMtg_member());
-//		
-//		meeting.setMtg_topic(form.getMtg_topic());
-//		meeting.setMtg_outline(form.getMtg_outline());
-//		meeting.setMtg_text(form.getMtg_text());
-//		
-//		
-//		return meeting;
-//	}
+		fMeeting.setMtg_time(meeting.getMtg_time());
+		fMeeting.setMtg_place(meeting.getMtg_place());
+		
+		fMeeting.setMtg_writer(meeting.getMtg_writer());
+		fMeeting.setMtg_member(meeting.getMtg_member());
+		
+		fMeeting.setMtg_topic(meeting.getMtg_topic());
+		fMeeting.setMtg_outline(meeting.getMtg_outline());
+		fMeeting.setMtg_text(meeting.getMtg_text());
+		
+		
+		return fMeeting;
+	}
 }

@@ -73,17 +73,17 @@ public class entranceController {
 	@PostMapping("regist")
 	public String regist(Model model , UsersForm form , 
 			HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("取得データ" + form);
+//		System.out.println("取得データ" + form);
 		/*ユーザ登録*/
 		//エンティティに詰め替える
 		Users user = new Users();
 		usersFormToEntity ufte = new usersFormToEntity();
 		user = ufte.usersFormToEntity(form);
-		System.out.println("つめかえ" + user);
+//		System.out.println("つめかえ" + user);
 		
 		service.userRegist(user);
 
-		System.out.println("登録完了");
+//		System.out.println("登録完了");
 		
 		return "index";
 	}	
@@ -98,7 +98,7 @@ public class entranceController {
 		userLogin uLogin = new userLogin();
 //		System.out.println(usersList);
 		boolean loginCheck = uLogin.userLogin(usersList , form);
-		System.out.println("ログインチェック" + loginCheck);
+//		System.out.println("ログインチェック" + loginCheck);
 
 		
 		if(loginCheck == false) {

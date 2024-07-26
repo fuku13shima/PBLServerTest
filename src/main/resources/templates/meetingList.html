@@ -27,11 +27,10 @@
 				
 		        	<div>
 			            <h3><a href="#popup1" class="meeting-popup" th:text = "${obj.mtg_title}">会議A</a></h3>
-			            <p th:text = "${obj.mtg_title}">タスク名: Project Kickoff</p>
-			            <p>備考: Initial project discussion</p>
-			            <p th:text = "${obj.mtg_date}">開催日時: 2024-06-21</p>
-			            <p th:text = "${obj.mtg_place}">場所: Room 101</p>
-			            <p th:text = "${obj.mtg_outline}">概要: Discuss project plan</p>
+			            <p th:text = "${obj.mtg_title}">会議名：[[${obj.mtg_title}]]</p>
+			            <p th:text = "${obj.mtg_date}">開催日時：[[${obj.mtg_date}]] [[${obj.mtg_time}]]</p>
+			            <p th:text = "${obj.mtg_place}">場所：[[${obj.mtg_place}]]</p>
+			            <p th:text = "${obj.mtg_outline}">概要：[[${obj.mtg_outline}]]</p>
 			            <input type = "hidden" name = "no" th:value = "${obj.mtg_id}">
 				        <input type = "submit" value = "個別メニューへ">
 		        	</div>
@@ -39,8 +38,7 @@
 					<section class="popup" id="popup1">
 			            <div class="popup__container">
 			                <h4>[[${obj.mtg_title}]]の詳細</h4>
-			                <p>タスク名: [[${obj.mtg_topic}]]</p>
-			                <p>備考: Initial project discussion</p>
+			                <p>議題: [[${obj.mtg_topic}]]</p>
 			                <p>開催日時: [[${obj.mtg_date}]] [[${obj.mtg_time}]]</p>
 			                <p>場所: [[${obj.mtg_place}]]</p>
 			                <p>概要: [[${obj.mtg_outline}]]</p>

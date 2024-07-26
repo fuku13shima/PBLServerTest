@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Company;
 import com.example.demo.entity.Meetings;
 import com.example.demo.form.MeetingsForm;
-import com.example.demo.model.dateFormat;
+import com.example.demo.model.entityToForm;
 import com.example.demo.model.formToEntity;
 import com.example.demo.repository.MeetingsRepository;
 import com.example.demo.repository.UsersRepository;
 import com.example.demo.service.RegistService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class indMeetingController {
@@ -38,10 +41,10 @@ public class indMeetingController {
 
 //該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
-			System.out.println(Mselect);			
+//			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());
-			System.out.println(Mtemp.getMtg_member());
+//			System.out.println(Mtemp.getMtg_member());
 			model.addAttribute("Mselect" , Mtemp);
 
 //議事録作成担当者取得
@@ -58,11 +61,12 @@ public class indMeetingController {
 
 		//会議追加ボタン押下
 		@PostMapping(value = "addMtg")
-		public String addMtg(Model model , MeetingsForm form) {
+		public String addMtg(Model model , MeetingsForm form ,
+				HttpServletRequest request, HttpServletResponse response) {
 			System.out.println(form);
 			
 			//テスト用会社ID
-			Integer[] C_idTemp = {1 , 2};
+			Integer[] C_idTemp = {1};
 			
 			form.setCompany_id(C_idTemp);
 			//エンティティに詰め替える
@@ -76,8 +80,17 @@ public class indMeetingController {
 			
 			//一覧画面遷移用会議リスト取得
 			Iterable<Meetings> Mlist = service.MselectAll();
-			System.out.println(Mlist);
-			model.addAttribute("Mlist" , Mlist);
+			//セッションスコープ作成
+			HttpSession session = request.getSession();
+//			// セッションスコープからインスタンスを取得
+			Integer Compny_id = (Integer) session.getAttribute("Compny_id");
+			
+			Iterable<Meetings> temp = service.homeSelect(Mlist , Compny_id);
+			
+//			Iterable<Meetings> Mlist = service.MselectAll();
+//			System.out.println(Mlist);
+//			model.addAttribute("Mlist" , Mlist);
+			model.addAttribute("Mlist" , temp);
 			model.addAttribute("addText" , "追加しました");
 			
 			return "meetingList";
@@ -122,8 +135,12 @@ public class indMeetingController {
 			Optional<Meetings> Mselect = Mrepository.findById(id);
 //			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
-//			System.out.println(Mtemp.getMeeting_name());			
-			model.addAttribute("Mselect" , Mtemp);
+//			System.out.println(Mtemp.getMeeting_name());	
+			//詰め替え
+			entityToForm etf = new entityToForm();
+			MeetingsForm temp = etf.entityToForm(Mtemp);
+			
+			model.addAttribute("Mselect" , temp);
 			model.addAttribute("testOutline" , Mtemp.getMtg_outline());
 			
 			return "agenda";
@@ -136,18 +153,21 @@ public class indMeetingController {
 			int id = Integer.parseInt(no);
 			//該当会議取得
 			Optional<Meetings> Mselect = Mrepository.findById(id);
-//			System.out.println(Mselect);			
+			System.out.println(Mselect);			
 			Meetings Mtemp = Mselect.get();
 //			System.out.println(Mtemp.getMeeting_name());			
-			model.addAttribute("Mselect" , Mtemp);
+//			model.addAttribute("Mselect" , Mtemp);
 			
 			
-			//日付フォーマット変更
-			dateFormat df = new dateFormat();
-			Date day = df.stringToDate(Mtemp.getMtg_date());
-			System.out.println(day);
+			//詰め替え
+			entityToForm etf = new entityToForm();
+			MeetingsForm temp = etf.entityToForm(Mtemp);
 			
-			model.addAttribute("day" , day);
+			System.out.println("変更日付取得" + temp.getMtg_date());
+			
+//			model.addAttribute("day" , temp.getMtg_date());
+			
+			model.addAttribute("Mselect" , temp);
 			
 			return "minutes";
 		}

@@ -23,12 +23,12 @@
 	    	<!-- 保存完了メッセージ -->
   			<h2 th:text = "${saveText}"></h2>
   			
-  			<form action= "saveAgenda" method="post">
+  			<form action= "saveAgenda" method="post" th:object = "${Mselect}">
   			
 		        <p>件名</p>
 		        <input type="text" id="mtg_title" name="mtg_title" th:value = "${Mselect.mtg_title}">
 		        <p>日時</p>
-		        <input type="date" id="mtg_date" name="mtg_date" th:value = "${Mselect.mtg_date}" min="2024-07-01" max="2030-12-31">
+		        <input type="date" id="mtg_date" name="mtg_date" th:field = "*{mtg_date}">
 		        <input type="time" id="mtg_time" name="mtg_time" th:value = "${Mselect.mtg_time}">
 		        <p>場所</p>
 		        <input type="text" name="mtg_place" th:value = "${Mselect.mtg_place}">
